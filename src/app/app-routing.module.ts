@@ -7,23 +7,23 @@ import { NotFoundComponent } from './modules/not-found/not-found.component';
 const routes: Routes = [
   { path: '', component: HomeComponent },
   {
-    path: 'login',
+    path: 'token',
     loadChildren: () =>
-      import('./modules/login/login.module').then((m) => m.LoginModule),
+      import('./modules/token/token.module').then((m) => m.TokenModule)
   },
   {
     path: 'repositories',
     loadChildren: () =>
       import('./modules/repositories/repositories.module').then(
         (m) => m.RepositoriesModule
-      ),
+      )
   },
-  { path: '**', component: NotFoundComponent },
+  { path: '**', component: NotFoundComponent }
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
-  declarations: [],
+  declarations: []
 })
 export class AppRoutingModule {}

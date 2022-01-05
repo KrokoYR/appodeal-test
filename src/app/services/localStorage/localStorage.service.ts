@@ -1,3 +1,5 @@
+declare var localStorage: any;
+
 class LocalStorageService {
   private readonly _available: boolean;
 

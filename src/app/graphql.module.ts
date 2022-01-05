@@ -4,18 +4,18 @@ import { ApolloLink, InMemoryCache } from '@apollo/client/core';
 import { setContext } from '@apollo/client/link/context';
 import { APOLLO_NAMED_OPTIONS, NamedOptions } from 'apollo-angular';
 import { HttpLink } from 'apollo-angular/http';
-import { localStorageService } from "./services/localStorage/localStorage.service";
+import { localStorageService } from './services/localStorage/localStorage.service';
 
 const uri = 'https://api.github.com/graphql';
 
 export function createApollo(httpLink: HttpLink): NamedOptions {
   const basic = setContext(() => ({
     headers: {
-      Accept: 'charset=utf-8',
-    },
+      Accept: 'charset=utf-8'
+    }
   }));
 
-  const auth = setContext((operation, context) => {
+  const auth = setContext(() => {
     const token = localStorageService.get('token');
 
     if (token === null) {
@@ -23,8 +23,8 @@ export function createApollo(httpLink: HttpLink): NamedOptions {
     } else {
       return {
         headers: {
-          Authorization: `bearer ${token}`,
-        },
+          Authorization: `bearer ${token}`
+        }
       };
     }
   });
@@ -33,7 +33,7 @@ export function createApollo(httpLink: HttpLink): NamedOptions {
   const cache = new InMemoryCache();
 
   return {
-    github: { link, cache },
+    github: { link, cache }
   };
 }
 
@@ -43,8 +43,8 @@ export function createApollo(httpLink: HttpLink): NamedOptions {
     {
       provide: APOLLO_NAMED_OPTIONS,
       useFactory: createApollo,
-      deps: [HttpLink],
-    },
-  ],
+      deps: [HttpLink]
+    }
+  ]
 })
 export class GraphQLModule {}

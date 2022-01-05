@@ -16,6 +16,9 @@ import { NotFoundComponent } from './modules/not-found/not-found.component';
 import { StoreModule } from '@ngrx/store';
 import { MatNativeDateModule } from '@angular/material/core';
 
+// services
+import { LocalStorageService } from './services/localStorage/watchableStorage.service';
+
 @NgModule({
   declarations: [AppComponent, HomeComponent, NotFoundComponent],
   imports: [
@@ -34,7 +37,7 @@ import { MatNativeDateModule } from '@angular/material/core';
 
     StoreModule.forRoot({}, {})
   ],
-  providers: [],
+  providers: [LocalStorageService, { provide: 'WINDOW', useValue: window }],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

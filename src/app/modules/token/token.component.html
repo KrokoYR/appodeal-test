@@ -1,0 +1,16 @@
+<div class="login">
+  <p>Пожалуйста, введите Github PAT(Personal access token)</p>
+
+  <form class='form' [formGroup]="form" (ngSubmit)="submit()">
+
+    <mat-form-field appearance="fill">
+      <mat-label>Github token</mat-label>
+      <input id="token" type="text" matInput placeholder="asdasd" formControlName="token">
+      <mat-error *ngIf="f['token'].errors && f['token'].errors['required']">
+        token is required
+      </mat-error>
+    </mat-form-field>
+
+    <button type="submit" mat-raised-button color="primary">Login</button>
+  </form>
+</div>

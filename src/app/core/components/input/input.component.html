@@ -1,5 +1,5 @@
 <mat-form-field appearance="fill">
-  <mat-label>Enter your email</mat-label>
-  <input matInput placeholder="pat@example.com" [formControl]="email" required>
-  <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+  <mat-label>{{ label }}</mat-label>
+  <input matInput placeholder="pat@example.com" [formControl]="inputControl" required>
+  <mat-error *ngIf="inputControl.invalid">{{getErrorMessage()}}</mat-error>
 </mat-form-field>

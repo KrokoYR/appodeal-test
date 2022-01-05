@@ -4,11 +4,9 @@
       <a mat-button routerLink="/">{{ title }}</a>
 
       <nav>
-        <ul>
-          <li *ngIf="!loggedIn"><a mat-button routerLink="/login">Login</a></li>
-          <li *ngIf="loggedIn">
-            <a mat-button routerLink="/repositories">Repositories</a>
-          </li>
+        <ul class='links'>
+          <li><a routerLink="/token">Token</a></li>
+          <li><a routerLink="/repositories">Repositories</a></li>
         </ul>
       </nav>
     </header>

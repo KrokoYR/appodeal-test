@@ -2,19 +2,20 @@ import { Component, Input } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 
 @Component({
-  selector: 'appodeal-input',
+  selector: 'app-input',
   templateUrl: 'input.component.html',
-  styleUrls: ['input.component.scss'],
+  styleUrls: ['input.component.scss']
 })
 export class InputComponent {
   @Input() label = '';
-  email = new FormControl('', [Validators.required, Validators.email]);
+
+  inputControl = new FormControl('', [Validators.required]);
 
   getErrorMessage() {
-    if (this.email.hasError('required')) {
+    if (this.inputControl.hasError('required')) {
       return 'You must enter a value';
     }
 
-    return this.email.hasError('email') ? 'Not a valid email' : '';
+    return '';
   }
 }

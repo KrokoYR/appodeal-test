@@ -4,3 +4,11 @@
   align-items: center;
   justify-content: space-between;
 }
+
+.links {
+  display: flex;
+
+  li + li {
+    margin-left: 20px;
+  }
+}
