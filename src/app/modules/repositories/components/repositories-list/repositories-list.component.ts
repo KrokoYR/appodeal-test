@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 
 // types
-import { IRepository } from '@services/api/github/query';
+import { IRepository } from '@services/api/github/types';
 
 @Component({
   selector: 'app-repositories-list',

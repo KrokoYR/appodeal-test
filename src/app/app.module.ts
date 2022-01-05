@@ -21,8 +21,6 @@ import { LocalStorageService } from '@services/localStorage/watchableStorage.ser
 import { NavbarComponent } from '@modules/navbar/navbar.component';
 import { MatButtonModule } from '@angular/material/button';
 
-declare var window: any;
-
 @NgModule({
   declarations: [
     AppComponent,

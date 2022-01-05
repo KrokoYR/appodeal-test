@@ -4,7 +4,9 @@
     "projects/**/*"
   ],
   "env": {
-    "jest": true
+    "jest": true,
+    "browser": true,
+    "node": true
   },
   "overrides": [
     {

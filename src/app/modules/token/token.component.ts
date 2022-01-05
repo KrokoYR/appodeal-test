@@ -10,8 +10,9 @@ import { AuthService } from '@services/auth/auth.service';
   styleUrls: ['./token.component.scss']
 })
 export class TokenComponent {
-  // eslint-disable-next-line no-unused-vars
-  constructor(private authService: AuthService) {}
+  constructor(private authService: AuthService) {
+    this.authService = authService;
+  }
 
   form = new FormGroup({
     token: new FormControl('', [Validators.required])

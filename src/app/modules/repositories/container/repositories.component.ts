@@ -3,11 +3,8 @@ import { QueryRef } from 'apollo-angular';
 import { Subscription } from 'rxjs';
 
 // services
-import {
-  GithubRepositories,
-  IRepository,
-  IRepositoryResponse
-} from '@services/api/github/query';
+import { GithubRepositories } from '@services/api/github/query';
+import { IRepository, IRepositoryResponse } from '@services/api/github/types';
 
 // utils
 import { debounce } from '@core/utils/debounce';

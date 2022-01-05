@@ -38,7 +38,7 @@ export class StorageService {
       item = null;
     } else {
       if (!this.watched[key]) {
-        // item = JSON.parse(item);
+        item = JSON.parse(item);
         this.subjects.get(key)?.next(item);
         this.watched[key] = true;
       }
@@ -53,13 +53,22 @@ export class StorageService {
    */
   get(key: string): any {
     let item: TStorageItem = this.storage.getItem(key);
-    if (item === undefined) {
-      item = undefined;
-    } else if (item === null) {
-      item = null;
-    } else {
-      // item = JSON.parse(item);
+    switch (item) {
+      case undefined: {
+        item = undefined;
+        break;
+      }
+
+      case null: {
+        item = null;
+        break;
+      }
+
+      default: {
+        item = JSON.parse(item);
+      }
     }
+
     return item;
   }
 
@@ -89,6 +98,7 @@ export class StorageService {
       // this.subjects.get(key).complete();
       // this.subjects.delete(key);
     }
+
     this.storage.removeItem(key);
   }
 

@@ -1,11 +1,12 @@
 import { setContext } from '@apollo/client/link/context';
-import { localStorageService } from '@services/localStorage/localStorage.service';
 import { ApolloLink } from '@apollo/client/core';
 import { HttpLink } from 'apollo-angular/http';
 import { onError } from '@apollo/client/link/error';
+import { LocalStorageService } from '@services/localStorage/watchableStorage.service';
 
 const uri = 'https://api.github.com/graphql';
-declare var alert: any;
+
+const localStorageService = new LocalStorageService(window);
 
 export const createGithubApollo = (httpLink: HttpLink): ApolloLink => {
   const basic = setContext(() => ({
@@ -34,7 +35,7 @@ export const createGithubApollo = (httpLink: HttpLink): ApolloLink => {
     const errorMsg = networkError?.message || graphQLErrors?.[0].message;
     // TODO: create a service to handle errors
     if (errorMsg) {
-      alert?.(errorMsg);
+      console.error(errorMsg);
     }
   });
 

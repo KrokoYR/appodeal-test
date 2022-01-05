@@ -1,22 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Query, gql } from 'apollo-angular';
-
-export interface IRepository {
-  name: string;
-  description: string;
-  url: string;
-  stargazers: { totalCount: number };
-  latestRelease: { publishedAt: string };
-  owner: { avatarUrl: string; login: string };
-}
-export interface IRepositoryResponse {
-  search: {
-    repositoryCount: number;
-    edges: {
-      node: IRepository;
-    }[];
-  };
-}
+import { gql, Query } from 'apollo-angular';
+import { IRepositoryResponse } from '@services/api/github/types';
 
 @Injectable({
   providedIn: 'root'

@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
-import { IRepository } from '@services/api/github/query';
 import { formatDate } from '@core/utils/date';
+import { IRepository } from '@services/api/github/types';
 
 @Component({
   selector: 'app-repositories-card',
