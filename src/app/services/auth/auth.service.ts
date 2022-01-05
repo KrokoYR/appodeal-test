@@ -18,7 +18,7 @@ export class AuthService {
   }
 
   login(token: string) {
-    this.localStorageService.set('token', token);
+    this.localStorageService.set('token', JSON.stringify(token));
   }
 
   logout() {

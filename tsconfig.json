@@ -22,7 +22,12 @@
       "es2020",
       "dom",
       "esnext.asynciterable"
-    ]
+    ],
+    "paths": {
+      "@core/*": ["./src/app/core/*"],
+      "@modules/*": ["./src/app/modules/*"],
+      "@services/*": ["./src/app/services/*"]
+    }
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,

@@ -1,16 +1,9 @@
 import { Component } from '@angular/core';
-import { AuthService } from './services/auth/auth.service';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  templateUrl: './app.component.html'
 })
 export class AppComponent {
-  title = 'appodeal-test';
-  loggedIn = false;
-
-  constructor(public auth: AuthService) {
-    this.loggedIn = auth.loggedIn;
-  }
+  constructor() {}
 }

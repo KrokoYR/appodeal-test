@@ -11,16 +11,25 @@ import { AppRoutingModule } from './app-routing.module';
 // components
 import { AppComponent } from './app.component';
 import { GraphQLModule } from './graphql.module';
-import { HomeComponent } from './modules/home/home.component';
-import { NotFoundComponent } from './modules/not-found/not-found.component';
+import { HomeComponent } from '@modules/home/home.component';
+import { NotFoundComponent } from '@modules/not-found/not-found.component';
 import { StoreModule } from '@ngrx/store';
 import { MatNativeDateModule } from '@angular/material/core';
 
 // services
 import { LocalStorageService } from './services/localStorage/watchableStorage.service';
+import { NavbarComponent } from '@modules/navbar/navbar.component';
+import { MatButtonModule } from '@angular/material/button';
+
+declare var window: any;
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, NotFoundComponent],
+  declarations: [
+    AppComponent,
+    HomeComponent,
+    NotFoundComponent,
+    NavbarComponent
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -35,7 +44,8 @@ import { LocalStorageService } from './services/localStorage/watchableStorage.se
     // ui
     MatToolbarModule,
 
-    StoreModule.forRoot({}, {})
+    StoreModule.forRoot({}, {}),
+    MatButtonModule
   ],
   providers: [LocalStorageService, { provide: 'WINDOW', useValue: window }],
   bootstrap: [AppComponent]

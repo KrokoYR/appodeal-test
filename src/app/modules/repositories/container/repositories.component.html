@@ -1,0 +1,20 @@
+<div class='container'>
+  <mat-form-field [ngClass]="'form'" appearance="outline">
+    <mat-label>Search</mat-label>
+    <input
+      id="token"
+      type="text"
+      autocomplete="off"
+      matInput
+      (input)='handleChange($event)'
+    >
+  </mat-form-field>
+
+  <app-repositories-list
+    *ngIf='!loading'
+    [repositories]='repositories'
+    [hasQueryString]='!!queryString.trim()'
+  ></app-repositories-list>
+
+  <mat-spinner *ngIf='loading'></mat-spinner>
+</div>

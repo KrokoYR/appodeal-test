@@ -1,0 +1,17 @@
+<div class='container'>
+  <ng-container *ngIf="repositories.length">
+    <ul class='list' >
+      <li *ngFor='let rep of repositories'>
+        <app-repositories-card [repository]='rep'></app-repositories-card>
+      </li>
+    </ul>
+  </ng-container>
+
+  <p class='empty-label' *ngIf='!repositories.length && !hasQueryString'>
+    Введите поисковое значение
+  </p>
+
+  <p class='empty-label' *ngIf='!repositories.length && hasQueryString'>
+    Ничего не найдено. Попробуйте изменить параметры поиска
+  </p>
+</div>

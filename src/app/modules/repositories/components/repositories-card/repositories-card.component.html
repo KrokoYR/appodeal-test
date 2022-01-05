@@ -1,0 +1,37 @@
+<mat-card>
+  <mat-card-title-group>
+    <mat-card-title >{{ repository.name }}</mat-card-title>
+
+    <mat-card-subtitle [ngClass]="'card-subtitle'">
+      <div>
+        Author: {{ repository.owner.login }}
+      </div>
+
+
+      <div class='flex-container'>
+        Stars: {{ repository.stargazers.totalCount }}
+        <mat-icon>star</mat-icon>
+      </div>
+
+      <div *ngIf='repository.latestRelease' class='flex-container'>
+        Last release: {{ releaseDate }}
+      </div>
+
+      <div *ngIf='!repository.latestRelease' class='flex-container'>
+        This repository has no releases
+      </div>
+    </mat-card-subtitle>
+
+    <img mat-card-md-image src="{{ repository.owner.avatarUrl }}" >
+  </mat-card-title-group>
+
+  <mat-card-content>
+    {{ repository.description }}
+  </mat-card-content>
+
+  <mat-card-actions>
+    <a href='{{ repository.url }}' color='primary' target='_blank' mat-raised-button>
+      Перейти
+    </a>
+  </mat-card-actions>
+</mat-card>

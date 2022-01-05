@@ -24,6 +24,7 @@
     "@apollo/client": "^3.5.6",
     "@ngrx/store": "^13.0.2",
     "apollo-angular": "^2.6.0",
+    "date-fns": "^2.28.0",
     "graphql": "^15.8.0",
     "normalize-scss": "^7.0.1",
     "rxjs": "~7.4.0",

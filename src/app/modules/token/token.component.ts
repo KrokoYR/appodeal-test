@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { AuthService } from '../../services/auth/auth.service';
+
+// services
+import { AuthService } from '@services/auth/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -20,6 +22,11 @@ export class TokenComponent {
   }
 
   submit() {
-    this.authService.login(this.form.value.token);
+    const { token } = this.form.value;
+    if (token) {
+      this.authService.login(this.form.value.token);
+    } else {
+      this.authService.logout();
+    }
   }
 }

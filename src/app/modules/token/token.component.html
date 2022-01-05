@@ -3,14 +3,20 @@
 
   <form class='form' [formGroup]="form" (ngSubmit)="submit()">
 
-    <mat-form-field appearance="fill">
+    <mat-form-field appearance="outline">
       <mat-label>Github token</mat-label>
-      <input id="token" type="text" matInput placeholder="asdasd" formControlName="token">
+      <input
+        id="token"
+        type="text"
+        autocomplete="off"
+        matInput
+        formControlName="token"
+      >
       <mat-error *ngIf="f['token'].errors && f['token'].errors['required']">
         token is required
       </mat-error>
     </mat-form-field>
 
-    <button type="submit" mat-raised-button color="primary">Login</button>
+    <button type="submit" mat-raised-button color="primary">Сохранить токен</button>
   </form>
 </div>
