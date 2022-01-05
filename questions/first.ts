@@ -1,8 +1,7 @@
-// we can just divide `a` by `b`, but lets do it properly
-// assume that 20% of `a` and 30% of `b` equal 60
+// answer: 3:2
 export const calculate = () => {
-  const percentOfA = 60 / 20;
-  const percentOfB = 60 / 30;
+  const percentOfA = (60 / 20) * 100;
+  const percentOfB = (60 / 30) * 100;
 
   console.log('percentOfA', percentOfA);
   console.log('percentOfB', percentOfB);
