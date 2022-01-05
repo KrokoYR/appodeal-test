@@ -17,7 +17,7 @@ import { StoreModule } from '@ngrx/store';
 import { MatNativeDateModule } from '@angular/material/core';
 
 // services
-import { LocalStorageService } from './services/localStorage/watchableStorage.service';
+import { LocalStorageService } from '@services/localStorage/watchableStorage.service';
 import { NavbarComponent } from '@modules/navbar/navbar.component';
 import { MatButtonModule } from '@angular/material/button';
 

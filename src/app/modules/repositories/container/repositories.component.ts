@@ -18,7 +18,7 @@ import { debounce } from '@core/utils/debounce';
   styleUrls: ['./repositories.component.scss']
 })
 export class RepositoriesComponent implements OnInit, OnDestroy {
-  loading = true;
+  loading = false;
   error: any;
   repositories: IRepository[] = [];
   repositoriesQuery: QueryRef<IRepositoryResponse> | undefined;
@@ -38,8 +38,7 @@ export class RepositoriesComponent implements OnInit, OnDestroy {
         number_of_repos: this.number_of_repos
       },
       {
-        context: {},
-        pollInterval: 5000
+        useInitialLoading: false
       }
     );
 
