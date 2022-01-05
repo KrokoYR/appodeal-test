@@ -4,7 +4,7 @@ import { ApolloLink, InMemoryCache } from '@apollo/client/core';
 import { setContext } from '@apollo/client/link/context';
 import { APOLLO_NAMED_OPTIONS, NamedOptions } from 'apollo-angular';
 import { HttpLink } from 'apollo-angular/http';
-import { localStorageService } from './services/LocalStorage.service';
+import { localStorageService } from "./services/localStorage/localStorage.service";
 
 const uri = 'https://api.github.com/graphql';
 
