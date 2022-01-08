@@ -1,6 +1,9 @@
 # AppodealTest
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.1.2.
+Тестовое приложение для appodeal. Имеет следующий функционал:
+
+1) Ввод и сохранение аутентификационного токена github'а для запросов в [Github Graphql](https://api.github.com/graphql).
+2) Поиск репозиториев через graphql
 
 ## Development server
 
