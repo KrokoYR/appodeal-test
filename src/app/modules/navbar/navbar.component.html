@@ -5,7 +5,7 @@
     <nav>
       <ul class='links'>
         <li><a routerLink="/token">Token</a></li>
-        <li><a routerLink="/repositories">Repositories</a></li>
+        <li *ngIf='(isLoggedIn$ | async)'><a routerLink="/repositories">Repositories</a></li>
       </ul>
     </nav>
   </header>

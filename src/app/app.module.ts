@@ -21,6 +21,13 @@ import { LocalStorageService } from '@services/localStorage/watchableStorage.ser
 import { NavbarComponent } from '@modules/navbar/navbar.component';
 import { MatButtonModule } from '@angular/material/button';
 
+// store
+import { appReducers, metaReducers } from './store/core.state';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+
+// env
+import { environment } from '../environments/environment';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -42,8 +49,16 @@ import { MatButtonModule } from '@angular/material/button';
     // ui
     MatToolbarModule,
 
-    StoreModule.forRoot({}, {}),
-    MatButtonModule
+    StoreModule.forRoot(appReducers, {
+      metaReducers
+    }),
+    MatButtonModule,
+
+    // Devtool
+    StoreDevtoolsModule.instrument({
+      maxAge: 25,
+      logOnly: environment.production
+    })
   ],
   providers: [LocalStorageService, { provide: 'WINDOW', useValue: window }],
   bootstrap: [AppComponent]

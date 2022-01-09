@@ -10,13 +10,14 @@
         type="text"
         autocomplete="off"
         matInput
-        formControlName="token"
+        [formControlName]="'token'"
+        [errorStateMatcher]='matcher'
       >
-      <mat-error *ngIf="f['token'].errors && f['token'].errors['required']">
+      <mat-error *ngIf="hasError">
         token is required
       </mat-error>
     </mat-form-field>
 
-    <button type="submit" mat-raised-button color="primary">Сохранить токен</button>
+    <button type="submit" mat-raised-button color="primary" [disabled]='hasError || isEmptyForm'>Сохранить токен</button>
   </form>
 </div>

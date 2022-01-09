@@ -1,20 +1,26 @@
 import { Injectable } from '@angular/core';
 import { LocalStorageService } from '../localStorage/watchableStorage.service';
+import { Store } from '@ngrx/store';
+import { loginAction } from '../../shared/auth';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  private _loggedIn = false;
-
-  constructor(private localStorageService: LocalStorageService) {
-    localStorageService.watch('token').subscribe((token) => {
-      this._loggedIn = !!token;
+  constructor(
+    private localStorageService: LocalStorageService,
+    private store: Store
+  ) {
+    localStorageService.watch('token').subscribe(() => {
+      this.store.dispatch(loginAction());
     });
   }
 
-  get loggedIn(): boolean {
-    return this._loggedIn;
+  checkLogin() {
+    const token = this.localStorageService.get('token');
+    if (token) {
+      this.store.dispatch(loginAction());
+    }
   }
 
   login(token: string) {

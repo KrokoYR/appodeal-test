@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { selectIsLoggedIn } from '../../shared/auth';
 
 @Component({
   selector: 'app-navbar',
@@ -6,7 +8,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent {
-  constructor() {}
+  isLoggedIn$ = this.store.select(selectIsLoggedIn);
+
+  constructor(private store: Store) {}
 
   title = 'appodeal-test';
 }
